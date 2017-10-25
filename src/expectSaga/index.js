@@ -327,19 +327,20 @@ export default function expectSaga(generator: Function, ...sagaArgs: mixed[]): E
   }
 
   function dispatch(action: Action): any {
-    function handler() {
-      storeState = reducer(storeState, action);
-      notifyListeners(action);
-    }
-
     if (typeof action._delayTime === 'number') {
       const { _delayTime } = action;
+
+      function handler() {
+        storeState = reducer(storeState, action);
+        notifyListeners(action)
+      }
 
       dispatchPromise
         .then(() => delay(_delayTime))
         .then(handler);
     } else {
-      dispatchPromise.then(handler);
+      storeState = reducer(storeState, action);
+      dispatchPromise.then(notifyListeners(action));
     }
   }
 
