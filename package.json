@@ -1,7 +1,7 @@
 {
-  "name": "redux-saga-test-plan",
-  "version": "3.2.0",
-  "description": "Test Redux Saga with an easy plan",
+  "name": "redux-saga-test-plan-resnap",
+  "version": "3.2.1",
+  "description": "Test Redux Saga with an easy plan - minor alteration to prevent race condition",
   "main": "lib/index.js",
   "files": [
     "decls",
@@ -28,7 +28,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jfairbank/redux-saga-test-plan.git"
+    "url": "git+https://github.com/gjdenhertog/redux-saga-test-plan.git"
   },
   "keywords": [
     "redux",
